@@ -6,7 +6,6 @@ ENABLE_STATUS: true
 SERVER_INDEX: 0
 # Words the bot won't allow in commands
 BLACKLIST:
-  - "!"
   - "!!"
   - "!!!"
 # Choose from "-Beta" or "-Public"; This is for auto updater
