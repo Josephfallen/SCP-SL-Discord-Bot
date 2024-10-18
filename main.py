@@ -254,13 +254,35 @@ async def player_count(ctx):
 # Command to display bot version
 @client.command(name='version')
 async def version(ctx):
-    await ctx.send(f"Bot Version: {BOT_VERSION}")
+    embed = discord.Embed(
+    await ctx.send(f"Bot Version: {BOT_VERSION}"),
+    color=discord.Color.blue()
+    )
+    await ctx.send(embed=embed)
 
 # Command to test JSON reading
+import json
+from discord import Embed
+
 @client.command(name='json_test')
 async def json_test(ctx):
     data = load_json_data(DATA_FILE)
-    await ctx.send(f"JSON Data: {json.dumps(data, indent=4)}")
+
+    # Function to redact sensitive info
+    def redact_sensitive_info(d):
+        if isinstance(d, dict):
+            return {k: redact_sensitive_info(v) for k, v in d.items() if 'port' not in k.lower() and 'id' not in k.lower()}
+        elif isinstance(d, list):
+            return [redact_sensitive_info(item) for item in d]
+        return d
+
+    redacted_data = redact_sensitive_info(data)
+    
+    # Create an embed
+    embed = Embed(title="Redacted JSON Data", color=0x00ff00)
+    embed.description = f"```json\n{json.dumps(redacted_data, indent=4)}\n```"
+    
+    await ctx.send(embed=embed)
 
 # Run the bot
 client.run(BOT_TOKEN)
