@@ -51,6 +51,9 @@ async def update_bot_code(download_url):
                     if os.path.exists(old_main_path):
                         os.remove(old_main_path)
                         logger.info("Deleted old main.py.")
+                    else:
+                        logger.error(f"Error removing old main.py: {e}")
+
 
                     # Move the new main.py to the current directory
                     new_main_path = os.path.join(repo_path, extracted_folder, "main.py")
@@ -93,14 +96,14 @@ async def check_for_updates(bot_version, version_suffix):
 
                     # Check if there's a new version by comparing only the version number part
                     if latest_version != bot_version:
-                        logger.info(f"A new version is available: {latest_version}. Would you like to update? (Y/N)")
+                        logger.info(f"A new version is available: {latest_version}. Would you like to update?")
                         user_input = input("Update now? (Y/N): ").strip().upper()
                         if user_input == 'Y':
                             download_url = next((asset['browser_download_url'] for asset in release_info['assets'] if asset['name'].endswith('.zip')), None)
                             if download_url:
                                 await update_bot_code(download_url)
                             else:
-                                logger.error("No valid download URL found for the new version.")
+                                logger.error("No valid download URL found for the new version. Please contact joseph_fallen on discord")
                         else:
                             logger.info("Update skipped.")
                     else:
