@@ -38,7 +38,7 @@ echo "Installing matplotlib"
 pip3 install matplotlib
 
 
-echo "If you wish to know about each modual please see the "Moduals.md" file."
+echo "If you wish to know about each modual please see the "modules.md" file."
 wait(10)
 
 wait(2)
