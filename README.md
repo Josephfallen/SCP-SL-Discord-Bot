@@ -40,8 +40,8 @@
 
 ##
 ### Then run `dependt.py` to install the required Dependencies.
-  1. Open the folder containing all the bot's code, and click `dependt.py` or if you are on linux, run `./install.sh`
-     > If you experience issues with `./install.sh`, please run `chmod +x install.sh`.[^1]
+  1. Open the folder containing all the bot's code, and click `win-install.py` or if you are on linux, run `./install.sh`
+      > If you experience issues with `./install.sh`, please run `chmod +x install.sh`.[^1]
   3. File will auto run and auto close (windows), On linux it will run it and then will return you back to your command line
 
 ##
@@ -58,5 +58,5 @@
 ## Contact for issues
 If you have issues contact joseph_fallen on discord
 
-[^1] [How to make a .sh script executable](https://askubuntu.com/questions/229589/how-to-make-a-file-e-g-a-sh-script-executable-so-it-can-be-run-from-a-termi)
+[^1]: [How to make a .sh script executable](https://askubuntu.com/questions/229589/how-to-make-a-file-e-g-a-sh-script-executable-so-it-can-be-run-from-a-termi)
 
