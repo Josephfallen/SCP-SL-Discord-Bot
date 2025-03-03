@@ -51,7 +51,7 @@
 
    On Debian/Ubuntu you can just open the bot via the terminal. You need to navigate to the directory where the bot is located and use the command
    
-    `python3 main.py`
+    python3 main.py
 
 
 ##
