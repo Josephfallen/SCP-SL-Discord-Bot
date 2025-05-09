@@ -26,14 +26,13 @@ echo "Installing loguru"
 pip3 install logguru --break-system-packages
 
 echo "Installing matplotlib"
-pip3 install matplotlib
+pip3 install matplotlib --break-system-packages
 
 
 echo "If you wish to know about each modual please see the "modules.md" file."
-wait(10)
+
 
 echo "All moduals installed!"
 
-wait(2)
 # Done
 echo "Setup is complete."
