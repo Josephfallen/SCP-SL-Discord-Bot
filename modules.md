@@ -1,5 +1,5 @@
 # Welcome
-Welcome to the modules file, here you can get info about all moduals in the bot, plus have the direct links to them and their documentation.
+Welcome to the modules file, here you can get info about all modules in the bot, plus have the direct links to them and their documentation.
 Thank you for all of your support in downloading this bot!
 
 ## Discord.py
