@@ -2,7 +2,7 @@ import os
 import sys
 import asyncio
 import discord
-from discord.ext import commands
+from discord.ext import commands, Embed
 import aiohttp
 import json
 from loguru import logger
@@ -11,8 +11,6 @@ import io
 import time
 import importlib.util
 import yaml
-
-# Import the update checker
 from updater import check_for_updates
 
 # Constants
@@ -56,7 +54,7 @@ ENABLE_STATUS = config.get("ENABLE_STATUS", True)
 SERVER_INDEX = config.get("SERVER_INDEX", 0)
 BLACKLIST = config.get("BLACKLIST", [])
 VERSION_SUFFIX = config.get("VERSION_SUFFIX", "-Public")  # Get version suffix from config
-BOT_VERSION = "v4.3.2" + VERSION_SUFFIX  # Append the suffix to the bot version
+BOT_VERSION = "v4.4.1" + VERSION_SUFFIX  # Append the suffix to the bot version
 
 # Setup logging with Loguru
 logger.add(sys.stdout, format="{time} {level} {message}", level="INFO")
@@ -260,29 +258,6 @@ async def version(ctx):
     )
     await ctx.send(embed=embed)
 
-# Command to test JSON reading
-import json
-from discord import Embed
-
-@client.command(name='json_test')
-async def json_test(ctx):
-    data = load_json_data(DATA_FILE)
-
-    # Function to redact sensitive info
-    def redact_sensitive_info(d):
-        if isinstance(d, dict):
-            return {k: redact_sensitive_info(v) for k, v in d.items() if 'port' not in k.lower() and 'id' not in k.lower()}
-        elif isinstance(d, list):
-            return [redact_sensitive_info(item) for item in d]
-        return d
-
-    redacted_data = redact_sensitive_info(data)
-    
-    # Create an embed
-    embed = Embed(title="Redacted JSON Data", color=0x00ff00)
-    embed.description = f"```json\n{json.dumps(redacted_data, indent=4)}\n```"
-    
-    await ctx.send(embed=embed)
 
 # Run the bot
 client.run(BOT_TOKEN)
