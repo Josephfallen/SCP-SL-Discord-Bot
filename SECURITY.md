@@ -5,10 +5,10 @@ These are the current versions where our security is supported. If you use an ol
 
 | Version | Supported          |
 | ------- | ------------------ |
+| 4.4.1   | :white_check_mark: |
 | 4.4.0   | :white_check_mark: |
 | 4.3.0   | :white_check_mark: |
-| 4.2.0   | :white_check_mark: |
-| < 4.2.0   | :x:              |
+| < 4.3.0   | :x:              |
 
 ## Reporting a Vulnerability
 
